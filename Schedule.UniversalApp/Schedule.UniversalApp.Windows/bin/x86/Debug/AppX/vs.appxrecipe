@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DENIS-LAPTOP</Machine>
+    <WindowsUser>Denis</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|x86</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+    <PackageIdentityName>24776a43-8193-458d-8fac-4206df4bf31f</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\obj\x86\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>642763C8BEBDCEC32ECAE4AB9E7B0A5A830A1B4E150CF1B82FD564607E97CB26</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>24776a43-8193-458d-8fac-4206df4bf31f_1.0.0.0_x86__k7tfm8dnpxb46</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>24776a43-8193-458d-8fac-4206df4bf31f_k7tfm8dnpxb46!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>24776a43-8193-458d-8fac-4206df4bf31f</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Denis</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\bin\x86\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-10-27T19:43:50.994</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\bin\x86\Debug\Schedule.UniversalApp.Windows.exe">
+      <PackagePath>Schedule.UniversalApp.Windows.exe</PackagePath>
+      <Modified>2014-10-27T19:56:38.654</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\packages\MvvmLightLibs.4.4.32.1\lib\netcore45\GalaSoft.MvvmLight.dll">
+      <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
+      <Modified>2014-09-02T20:10:29.356</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\packages\MvvmLightLibs.4.4.32.1\lib\netcore45\GalaSoft.MvvmLight.Extras.dll">
+      <PackagePath>GalaSoft.MvvmLight.Extras.dll</PackagePath>
+      <Modified>2014-09-02T20:10:29.371</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll">
+      <PackagePath>Microsoft.Practices.ServiceLocation.dll</PackagePath>
+      <Modified>2014-09-02T20:10:29.017</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2014-09-02T20:10:29.848</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\SQLite.WinRT81\3.8.6\Redist\Debug\x86\sqlite3.dll">
+      <PackagePath>sqlite3.dll</PackagePath>
+      <Modified>2014-09-02T20:24:50.336</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-09-02T20:10:30.010</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-09-02T20:10:30.011</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-09-02T20:10:30.013</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-09-02T20:10:30.014</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\bin\x86\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2014-10-27T19:43:50.134</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\bin\x86\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2014-10-27T19:43:50.134</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\bin\x86\Debug\ScheduleSelector.xbf">
+      <PackagePath>ScheduleSelector.xbf</PackagePath>
+      <Modified>2014-10-27T19:43:50.134</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\bin\x86\Debug\Schedule.UniversalApp.Windows.xr.xml">
+      <PackagePath>Schedule.UniversalApp.Windows.xr.xml</PackagePath>
+      <Modified>2014-09-02T20:26:55.635</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.Windows\bin\x86\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2014-10-27T19:43:50.853</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Debug</Name>
+      <Version>12.0.21005.1</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Debug, MinVersion = 12.0.21005.1</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.12.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Debug</Name>
+      <Version>12.0.21005.1</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Debug, MinVersion = 12.0.21005.1</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.12.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Debug</Name>
+      <Version>12.0.21005.1</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Debug, MinVersion = 12.0.21005.1</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.12.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

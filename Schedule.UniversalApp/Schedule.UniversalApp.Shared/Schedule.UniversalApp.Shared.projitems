@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a7ad7529-5dce-4672-8734-363817a79370</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Schedule.UniversalApp</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)BaseTypes\Category.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BooleanToVisibilityValueConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Categories.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Exceptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Messages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\DaySchedule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\ScheduleEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\Subject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\WeekDay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\WeekSchedule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\State.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Status.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ApplicationStateService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\WebAccessService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\UriService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\WebDataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DateTimeService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ScheduleSelectorViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\WeekSelectorViewModel.cs" />
+  </ItemGroup>
+</Project>
