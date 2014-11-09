@@ -1,1 +1,0 @@
-C:\Users\Denis\Source\Repos\schedule\Schedule.UniversalApp\Schedule.UniversalApp.WindowsPhone\Schedule.UniversalApp.WindowsPhone.csproj;x86
