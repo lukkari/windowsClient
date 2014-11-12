@@ -18,7 +18,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)BaseTypes\Category.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BooleanToVisibilityValueConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Categories.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Commands.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Exceptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\FeedbackForm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Messages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\DaySchedule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\ScheduleEntity.cs" />

@@ -1,3 +1,4 @@
+using System.ServiceModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -19,10 +20,7 @@ namespace Schedule.UniversalApp.ViewModel
         DataService dataService = new DataService();
         ApplicationStateService stateService;
 
-        public RelayCommand NextWeekCommand { get; set; }
-        public RelayCommand PreviousWeekCommand { get; set; }
-        public RelayCommand NavigateToCurrentCommand { get; set; }
-        public RelayCommand UpdateCommand { get; set; }
+        public Commands Commands { get; set; }
         public bool DisplayError
         {
             get { return status.DisplayError; }
@@ -88,16 +86,25 @@ namespace Schedule.UniversalApp.ViewModel
         }
         public MainViewModel()
         {
-            NextWeekCommand = new RelayCommand(GetNextWeekAsync);
-            PreviousWeekCommand = new RelayCommand(GetPreviousWeekAsync);
-            NavigateToCurrentCommand = new RelayCommand(async () => await GetScheduleByWeekNumberAsync(DateTimeService.GetCurrentCalendarWeek));
-            UpdateCommand = new RelayCommand(async () => await GetScheduleByWeekNumberAsync(CurrentSelectedWeek));
+            Commands = new Commands
+            {
+                NextWeekCommand = new RelayCommand(GetNextWeekAsync),
+                PreviousWeekCommand = new RelayCommand(GetPreviousWeekAsync),
+                NavigateToCurrentCommand = new RelayCommand(async () => await GetScheduleByWeekNumberAsync(DateTimeService.GetCurrentCalendarWeek)),
+                UpdateCommand = new RelayCommand(async () => await GetScheduleByWeekNumberAsync(CurrentSelectedWeek)),
+                SendFeedbackCommand = new RelayCommand<string>(SendFeedback)
+            };
 
             Messenger.Default.Register<CategorySelectionMessage>(this, async (action) => await ReceiveCategoryMessageAsync(action));
             Messenger.Default.Register<WeekNumberMessage>(this, async (action) => await GetScheduleByWeekNumberAsync(action.WeekNumber));
             Messenger.Default.Register<WeekSchedule>(this, (action) => CurrentWeekSchedule = action);
 
             LoadStateAsync();
+        }
+
+        private async void SendFeedback(string message)
+        {
+           string resp = await dataService.SendFeedback(new FeedbackForm(){message = message});
         }
         private async void LoadStateAsync()
         {

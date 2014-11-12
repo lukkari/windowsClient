@@ -14,10 +14,25 @@
     <Page.BottomAppBar>
         <CommandBar x:Name="BottomBar" Background="{ThemeResource PhoneChromeBrush}">
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Name="Back" Icon="Back" Label="Previous" Command="{Binding PreviousWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
-                <AppBarButton x:Name="Current" Icon="GoToToday" Label="Current" Command="{Binding NavigateToCurrentCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
-                <AppBarButton x:Name="Forward" Icon="Forward" Label="Next" Command="{Binding NextWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
+                <AppBarButton x:Name="Back" Icon="Back" Label="Previous" Command="{Binding Commands.PreviousWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
+                <AppBarButton x:Name="Current" Icon="GoToToday" Label="Current" Command="{Binding Commands.NavigateToCurrentCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
+                <AppBarButton x:Name="Forward" Icon="Forward" Label="Next" Command="{Binding Commands.NextWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
             </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="Feedback" Label="leave a feedback">
+                    <AppBarButton.Flyout>
+                        <Flyout x:Name="FeedbackFlyout" Placement="Full" Opened="FlyoutBase_OnOpened" Closed="FlyoutBase_OnClosed">
+                            <StackPanel Orientation="Vertical">
+                                <TextBox x:Name="FeedbackBox"  AcceptsReturn="True" Header="Leave your feedback:" HorizontalAlignment="Stretch" MaxLength="400" Margin="10,0,10,10" MinHeight="200"></TextBox>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button x:Name="Cancel" Content="Cancel" Click="Cancel_OnClick" Margin="0,0,40,0"></Button>
+                                <Button x:Name="Submit" Content="Submit" Command="{Binding Commands.SendFeedbackCommand}" CommandParameter="{Binding ElementName=FeedbackBox, Path=Text}" ></Button>
+                            </StackPanel>
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -33,7 +48,7 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <HyperlinkButton x:Name="CategorySelection" Grid.Column="0" Height="70" HorizontalAlignment="Stretch" Content="{Binding SelectedCategory}" Click="CategorySelection_Click" Canvas.ZIndex="1"/>
-                <HyperlinkButton x:Name="WeekSelection" Grid.Column="1"  Content="{Binding}" Height="70" Click="WeekSelector_Click" Background="DarkMagenta" Visibility="{Binding IsWeekNavigationEnabled, Converter={StaticResource VisibilityConverter}}" Foreground="White">                 
+                <HyperlinkButton x:Name="WeekSelection" Grid.Column="1"  Content="{Binding}" Height="70" Click="WeekSelector_Click" Background="DarkMagenta" Visibility="{Binding IsWeekNavigationEnabled, Converter={StaticResource VisibilityConverter}}" Foreground="White">
                     <HyperlinkButton.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Margin="15,0,15,0" Orientation="Vertical">
@@ -97,7 +112,7 @@
                             </StackPanel>
                             <TextBlock Text="{Binding GetStringEndTime}" Grid.Row="2" FontSize="{StaticResource TextStyleLargeFontSize}" VerticalAlignment="Bottom" Margin="4,0,4,3" Foreground="White" />
                         </Grid>
-                        
+
                     </Grid>
                 </DataTemplate>
             </Pivot.Resources>

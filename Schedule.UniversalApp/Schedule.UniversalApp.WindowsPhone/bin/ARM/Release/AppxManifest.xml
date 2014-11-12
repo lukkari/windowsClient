@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="33359DenisAnchugov.TUASSchedule" Publisher="CN=39ACF712-36B5-4F15-8366-631E811368B0" Version="1.1.0.1" ProcessorArchitecture="arm" />
+  <Identity Name="33359DenisAnchugov.TUASSchedule" Publisher="CN=39ACF712-36B5-4F15-8366-631E811368B0" Version="1.1.0.5" ProcessorArchitecture="arm" />
   <mp:PhoneIdentity PhoneProductId="ceae71d9-eef6-4ff6-8e6a-0bdb10875715" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>TUAS Schedule</DisplayName>
@@ -24,7 +24,7 @@
   <Applications>
     <Application Id="App" Executable="Schedule.UniversalApp.WindowsPhone.exe" EntryPoint="Schedule.UniversalApp.WindowsPhone.App">
       <m3:VisualElements DisplayName="TUAS Schedule" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\StoreLogo106x106.png" Description="Turku University Of Applied Sciences schedule app." ForegroundText="light" BackgroundColor="darkMagenta">
-        <m3:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
+        <m3:LockScreen Notification="badge" BadgeLogo="Assets\badge.png" />
         <m3:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\Square71x71Logo.png"></m3:DefaultTile>
         <m3:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="darkMagenta" />
         <m3:InitialRotationPreference>

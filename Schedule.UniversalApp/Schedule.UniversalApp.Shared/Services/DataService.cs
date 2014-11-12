@@ -32,7 +32,10 @@ namespace Schedule.UniversalApp.Services
             return schedule;
         }
 
-        
+        public async Task<string> SendFeedback(FeedbackForm feedback)
+        {
+            return await webData.SendAsync(feedback);
+        }
         void UpdateWeekSchedule(WeekSchedule validSchedule)
         {
             Messenger.Default.Send(validSchedule);

@@ -64,5 +64,20 @@ namespace Schedule.UniversalApp
         //        ((Pivot) pi.Parent).SelectedItem = pi;
         //    }           
         //}
+
+        private void FlyoutBase_OnOpened(object sender, object e)
+        {
+            BottomBar.Visibility = Visibility.Collapsed;
+        }
+
+        private void FlyoutBase_OnClosed(object sender, object e)
+        {
+            BottomBar.Visibility = Visibility.Visible;
+        }
+
+        private void Cancel_OnClick(object sender, RoutedEventArgs e)
+        {
+            FeedbackFlyout.Hide();
+        }
     }
 }

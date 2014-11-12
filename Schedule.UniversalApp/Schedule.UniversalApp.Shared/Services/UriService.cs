@@ -8,6 +8,7 @@ namespace Schedule.UniversalApp.Services
         const string GroupCategoryUrl = "http://lukkari.dc.turkuamk.fi/api/groups";
         const string RoomCategoryUrl = "http://lukkari.dc.turkuamk.fi/api/rooms";
         const string TeacherCategoryUrl = "http://lukkari.dc.turkuamk.fi/api/teachers";
+        const string MessageUri = "http://lukkari.dc.turkuamk.fi/api/message?";
 
         public Uri GetScheduleUri(string categoryName, int weekNumber)
         {
@@ -25,6 +26,11 @@ namespace Schedule.UniversalApp.Services
         public Uri TeachersUri
         {
             get { return new Uri(TeacherCategoryUrl); }
+        }
+
+        public Uri GetMessagingUri
+        {
+            get { return new Uri(MessageUri); }
         }
     }
 }

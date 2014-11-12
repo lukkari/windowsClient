@@ -34,16 +34,16 @@
     <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\Schedule\packages\Newtonsoft.Json.6.0.4\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\Schedule\Schedule.UniversalApp\Schedule.UniversalApp.WindowsPhone\Assets\BadgeLogo.scale-100.png">
-      <PackagePath>Assets\BadgeLogo.scale-100.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\Schedule\Schedule.UniversalApp\Schedule.UniversalApp.WindowsPhone\Assets\badge.scale-100.png">
+      <PackagePath>Assets\badge.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\Schedule\Schedule.UniversalApp\Schedule.UniversalApp.WindowsPhone\Assets\BadgeLogo.scale-140.png">
-      <PackagePath>Assets\BadgeLogo.scale-140.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\Schedule\Schedule.UniversalApp\Schedule.UniversalApp.WindowsPhone\Assets\badge.scale-140.png">
+      <PackagePath>Assets\badge.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\Schedule\Schedule.UniversalApp\Schedule.UniversalApp.WindowsPhone\Assets\BadgeLogo.scale-240.png">
-      <PackagePath>Assets\BadgeLogo.scale-240.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\Schedule\Schedule.UniversalApp\Schedule.UniversalApp.WindowsPhone\Assets\badge.scale-240.png">
+      <PackagePath>Assets\badge.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Denis\Source\Repos\Schedule\Schedule.UniversalApp\Schedule.UniversalApp.WindowsPhone\Assets\SplashScreen.scale-100.png">
