@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule.UniversalApp.Windo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule.UniversalApp.WindowsPhone", "Schedule.UniversalApp\Schedule.UniversalApp.WindowsPhone\Schedule.UniversalApp.WindowsPhone.csproj", "{96108950-FBAE-42CE-BBBE-1140321F331D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{82C7B8E0-67BA-4FF8-B683-31CF53A6ADBC}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Schedule.UniversalApp\Schedule.UniversalApp.Shared\Schedule.UniversalApp.Shared.projitems*{a7ad7529-5dce-4672-8734-363817a79370}*SharedItemsImports = 13
