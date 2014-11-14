@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using Newtonsoft.Json;
 
 namespace Schedule.UniversalApp.Model.ScheduleEntities
 {

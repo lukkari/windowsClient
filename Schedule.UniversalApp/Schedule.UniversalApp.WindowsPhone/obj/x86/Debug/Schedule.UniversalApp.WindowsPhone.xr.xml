@@ -6,12 +6,12 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="Commands" />
+    <RootPropertyPathName Name="SendFeedbackCommand" />
+    <RootPropertyPathName Name="Text" />
     <RootPropertyPathName Name="NextWeekCommand" />
     <RootPropertyPathName Name="IsWeekNavigationEnabled" />
     <RootPropertyPathName Name="NavigateToCurrentCommand" />
     <RootPropertyPathName Name="PreviousWeekCommand" />
-    <RootPropertyPathName Name="SendFeedbackCommand" />
-    <RootPropertyPathName Name="Text" />
     <RootPropertyPathName Name="IsLoading" />
     <RootPropertyPathName Name="DisplayError" />
     <RootPropertyPathName Name="UpdateCommand" />
@@ -70,40 +70,19 @@
       <RootProperty Name="Label" />
       <RootProperty Name="Command" />
       <RootProperty Name="IsEnabled" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="CommandParameter" />
       <RootProperty Name="Flyout" />
       <RootProperty Name="IsCompact" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
       <RootProperty Name="Placement" />
       <RootProperty Name="Content" />
       <RootEvent Name="Opened" />
       <RootEvent Name="Closed" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="Orientation" />
-      <RootProperty Name="Children" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="DataContext" />
-      <RootProperty Name="Margin" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="AcceptsReturn" />
-      <RootProperty Name="Header" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="MaxLength" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="MinHeight" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Command" />
-      <RootProperty Name="CommandParameter" />
-      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="RowDefinitions" />
@@ -123,6 +102,36 @@
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="AcceptsReturn" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HeaderTemplate" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="Text" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="TextAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="VerticalAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Children" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="DataContext" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="HeaderTemplate" />
@@ -138,20 +147,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Canvas">
       <RootMethod Name="GetZIndex" />
       <RootMethod Name="SetZIndex" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="TextAlignment" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Margin" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />

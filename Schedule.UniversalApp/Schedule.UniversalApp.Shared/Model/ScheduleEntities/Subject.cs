@@ -1,8 +1,11 @@
-﻿namespace Schedule.UniversalApp.Model.ScheduleEntities
+﻿using Newtonsoft.Json;
+
+namespace Schedule.UniversalApp.Model.ScheduleEntities
 {
     public class Subject
     {
-        public string _Id { get; set; }
+        [JsonProperty(PropertyName = "_Id")]
+        public string Id { get; set; }
         public string Name { get; set; }
     }
 }

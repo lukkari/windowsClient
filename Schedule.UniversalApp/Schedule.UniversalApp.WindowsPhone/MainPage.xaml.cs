@@ -55,24 +55,26 @@ namespace Schedule.UniversalApp
         {
             this.Frame.Navigate(typeof(WeekSelector));
         }
-
-        //private void FrameworkElement_OnDataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
-        //{
-        //    if (args.NewValue.ToString() == "Tuesday")
-        //    {
-        //        var pi = (PivotItem)sender;
-        //        ((Pivot) pi.Parent).SelectedItem = pi;
-        //    }           
-        //}
-
+        
         private void FlyoutBase_OnOpened(object sender, object e)
         {
-            BottomBar.Visibility = Visibility.Collapsed;
+            Back.Visibility = Visibility.Collapsed;
+            Current.Visibility = Visibility.Collapsed;
+            Forward.Visibility = Visibility.Collapsed;
+
+            Send.Visibility = Visibility.Visible;
+            Cancel.Visibility = Visibility.Visible;
+
         }
 
         private void FlyoutBase_OnClosed(object sender, object e)
         {
-            BottomBar.Visibility = Visibility.Visible;
+            Send.Visibility = Visibility.Collapsed;
+            Cancel.Visibility = Visibility.Collapsed;
+
+            Back.Visibility = Visibility.Visible;
+            Current.Visibility = Visibility.Visible;
+            Forward.Visibility = Visibility.Visible;
         }
 
         private void Cancel_OnClick(object sender, RoutedEventArgs e)

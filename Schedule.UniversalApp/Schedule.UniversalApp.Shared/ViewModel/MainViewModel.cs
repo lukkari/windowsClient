@@ -1,4 +1,6 @@
 using System.ServiceModel;
+using Windows.Graphics.Display;
+using Windows.UI.Xaml;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -104,7 +106,9 @@ namespace Schedule.UniversalApp.ViewModel
 
         private async void SendFeedback(string message)
         {
-           string resp = await dataService.SendFeedback(new FeedbackForm(){message = message});
+            double height = Window.Current.Bounds.Height * DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
+            double width = Window.Current.Bounds.Width * DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
+            await dataService.SendFeedback(new FeedbackForm(width, height, message));
         }
         private async void LoadStateAsync()
         {

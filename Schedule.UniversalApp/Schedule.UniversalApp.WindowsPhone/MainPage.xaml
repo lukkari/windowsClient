@@ -17,18 +17,26 @@
                 <AppBarButton x:Name="Back" Icon="Back" Label="Previous" Command="{Binding Commands.PreviousWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
                 <AppBarButton x:Name="Current" Icon="GoToToday" Label="Current" Command="{Binding Commands.NavigateToCurrentCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
                 <AppBarButton x:Name="Forward" Icon="Forward" Label="Next" Command="{Binding Commands.NextWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
+                <AppBarButton x:Name="Cancel" Icon="Cancel" Click="Cancel_OnClick" Visibility="Collapsed"></AppBarButton>
+                <AppBarButton x:Name="Send" Icon="Send" Command="{Binding Commands.SendFeedbackCommand}" CommandParameter="{Binding ElementName=FeedbackBox, Path=Text}" Visibility="Collapsed"></AppBarButton>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="Feedback" Label="leave a feedback">
+                <AppBarButton x:Name="Feedback" Label="leave a feedback" >
                     <AppBarButton.Flyout>
                         <Flyout x:Name="FeedbackFlyout" Placement="Full" Opened="FlyoutBase_OnOpened" Closed="FlyoutBase_OnClosed">
-                            <StackPanel Orientation="Vertical">
-                                <TextBox x:Name="FeedbackBox"  AcceptsReturn="True" Header="Leave your feedback:" HorizontalAlignment="Stretch" MaxLength="400" Margin="10,0,10,10" MinHeight="200"></TextBox>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button x:Name="Cancel" Content="Cancel" Click="Cancel_OnClick" Margin="0,0,40,0"></Button>
-                                <Button x:Name="Submit" Content="Submit" Command="{Binding Commands.SendFeedbackCommand}" CommandParameter="{Binding ElementName=FeedbackBox, Path=Text}" ></Button>
-                            </StackPanel>
-                            </StackPanel>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBox x:Name="FeedbackBox" AcceptsReturn="True" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,10,10">
+                                    <TextBox.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="Leave your feedback:" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Margin="0,0,0,10"></TextBlock>
+                                        </DataTemplate>
+                                    </TextBox.HeaderTemplate>
+                                </TextBox>
+                            </Grid>
                         </Flyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>
@@ -112,7 +120,6 @@
                             </StackPanel>
                             <TextBlock Text="{Binding GetStringEndTime}" Grid.Row="2" FontSize="{StaticResource TextStyleLargeFontSize}" VerticalAlignment="Bottom" Margin="4,0,4,3" Foreground="White" />
                         </Grid>
-
                     </Grid>
                 </DataTemplate>
             </Pivot.Resources>
