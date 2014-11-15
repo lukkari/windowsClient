@@ -1,4 +1,6 @@
-﻿using Windows.Phone.UI.Input;
+﻿using System;
+using System.Threading.Tasks;
+using Windows.Phone.UI.Input;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -50,15 +52,15 @@ namespace Schedule.UniversalApp
             if (text.Length == 0)
             {
                 var message = new MessageDialog("You haven't written anything.", "Error");
-                message.ShowAsync();
+                await message.ShowAsync();
             }
             else
             {
-                ShowResultAsync(await ((FeedbackViewModel)this.DataContext).SendFeedbackAsync(text));    
+                await ShowResultAsync(await ((FeedbackViewModel)this.DataContext).SendFeedbackAsync(text));    
             }          
         }
 
-        private void ShowResultAsync(bool b)
+        private async Task ShowResultAsync(bool b)
         {
             MessageDialog message;
             if (b)
@@ -69,7 +71,7 @@ namespace Schedule.UniversalApp
             {
                 message = new MessageDialog("Something went wrong. Please try again later.", "Error");
             }
-            message.ShowAsync();
+            await message.ShowAsync();
             this.Frame.GoBack();
         }
     }
