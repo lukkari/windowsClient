@@ -11,6 +11,5 @@ namespace Schedule.UniversalApp.Model
         public RelayCommand PreviousWeekCommand { get; set; }
         public RelayCommand NavigateToCurrentCommand { get; set; }
         public RelayCommand UpdateCommand { get; set; }
-        public RelayCommand<string> SendFeedbackCommand { get; set; }
     }
 }

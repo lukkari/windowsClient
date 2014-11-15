@@ -18,6 +18,7 @@ namespace Schedule.UniversalApp.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ScheduleSelectorViewModel>();
             SimpleIoc.Default.Register<WeekSelectorViewModel>();
+            SimpleIoc.Default.Register<FeedbackViewModel>();
         }
 
         public MainViewModel Main
@@ -39,6 +40,14 @@ namespace Schedule.UniversalApp.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<WeekSelectorViewModel>();
+            }
+        }
+
+        public FeedbackViewModel Feedback
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<FeedbackViewModel>();
             }
         }
 

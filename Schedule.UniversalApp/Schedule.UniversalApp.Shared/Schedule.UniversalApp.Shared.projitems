@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\UriService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\WebDataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DateTimeService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\FeedbackViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ScheduleSelectorViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />

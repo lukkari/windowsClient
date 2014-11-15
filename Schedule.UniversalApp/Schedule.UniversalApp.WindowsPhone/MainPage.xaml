@@ -17,40 +17,18 @@
                 <AppBarButton x:Name="Back" Icon="Back" Label="Previous" Command="{Binding Commands.PreviousWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
                 <AppBarButton x:Name="Current" Icon="GoToToday" Label="Current" Command="{Binding Commands.NavigateToCurrentCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
                 <AppBarButton x:Name="Forward" Icon="Forward" Label="Next" Command="{Binding Commands.NextWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
-                <AppBarButton x:Name="Cancel" Icon="Cancel" Click="Cancel_OnClick" Visibility="Collapsed"></AppBarButton>
-                <AppBarButton x:Name="Send" Icon="Send" Command="{Binding Commands.SendFeedbackCommand}" CommandParameter="{Binding ElementName=FeedbackBox, Path=Text}" Visibility="Collapsed"></AppBarButton>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="Feedback" Label="leave a feedback" >
-                    <AppBarButton.Flyout>
-                        <Flyout x:Name="FeedbackFlyout" Placement="Full" Opened="FlyoutBase_OnOpened" Closed="FlyoutBase_OnClosed">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="Auto"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <TextBox x:Name="FeedbackBox" AcceptsReturn="True" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,10,10">
-                                    <TextBox.HeaderTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="Leave your feedback:" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Margin="0,0,0,10"></TextBlock>
-                                        </DataTemplate>
-                                    </TextBox.HeaderTemplate>
-                                </TextBox>
-                            </Grid>
-                        </Flyout>
-                    </AppBarButton.Flyout>
-                </AppBarButton>
+                <AppBarButton x:Name="Feedback" Label="leave a feedback" Click="Feedback_OnClick" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
-
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel>
-            <Grid Grid.Row="0" Background="{ThemeResource PhoneChromeBrush}">
+        <Grid Grid.Row="0" Background="{ThemeResource PhoneChromeBrush}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -67,7 +45,6 @@
                     </HyperlinkButton.ContentTemplate>
                 </HyperlinkButton>
             </Grid>
-        </StackPanel>
         <Pivot x:Name="SchedulePresenter" Grid.Row="1" ItemsSource="{Binding CurrentWeekSchedule.WeekDays}">
             <Pivot.HeaderTemplate>
                 <DataTemplate>
@@ -131,7 +108,7 @@
                 </DataTemplate>
             </Pivot.ItemTemplate>
         </Pivot>
-        <StackPanel Grid.Row="1" Visibility="{Binding DisplayError, Converter={StaticResource ResourceKey=VisibilityConverter}}"  VerticalAlignment="Center">
+        <StackPanel Grid.Row="1" Visibility="{Binding IsFailure, Converter={StaticResource ResourceKey=VisibilityConverter}}"  VerticalAlignment="Center">
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Width="350" TextWrapping="WrapWholeWords"  FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Foreground="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Text="Error. We were unable to connect to the server."></TextBlock>
             <AppBarButton IsCompact="True" Icon="Refresh" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding UpdateCommand}"/>
         </StackPanel>

@@ -33,7 +33,7 @@
             </PivotItem>
         </Pivot>      
         <ProgressRing Grid.Row="0" IsActive="{Binding IsLoading}" IsEnabled="False" Canvas.ZIndex="1"/>
-        <StackPanel Grid.Row="0" Visibility="{Binding DisplayError, Converter={StaticResource ResourceKey=VisibilityConverter}}"  VerticalAlignment="Center">
+        <StackPanel Grid.Row="0" Visibility="{Binding IsFailure, Converter={StaticResource ResourceKey=VisibilityConverter}}"  VerticalAlignment="Center">
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Width="350" TextWrapping="WrapWholeWords"  FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Foreground="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Text="Error. We were unable to connect to the server."></TextBlock>
             <AppBarButton IsCompact="True" Icon="Refresh" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Update}"/>
         </StackPanel>

@@ -18,19 +18,19 @@ namespace Schedule.UniversalApp.ViewModel
         WeekSchedule currentWeekSchedule;
         Category selectedCategory;
         int currentSelectedWeek;
-        Status status = new Status();
-        DataService dataService = new DataService();
+        readonly Status status = new Status();
+        readonly DataService dataService = new DataService();
         ApplicationStateService stateService;
 
         public Commands Commands { get; set; }
-        public bool DisplayError
+        public bool IsFailure
         {
-            get { return status.DisplayError; }
+            get { return status.IsFailure; }
             set
             {
-                if (value == status.DisplayError) return;
-                status.DisplayError = value;
-                RaisePropertyChanged("DisplayError");
+                if (value == status.IsFailure) return;
+                status.IsFailure = value;
+                RaisePropertyChanged("IsFailure");
             }
         }
         public bool IsWeekNavigationEnabled
@@ -55,13 +55,13 @@ namespace Schedule.UniversalApp.ViewModel
         }
         public Category SelectedCategory
         {
-            get { return selectedCategory ?? new Category(){Name = "Select schedule"}; }
+            get { return selectedCategory ?? new Category() { Name = "Select schedule" }; }
             set
             {
                 if (selectedCategory == value) return;
                 IsWeekNavigationEnabled = true;
                 selectedCategory = value;
-                RaisePropertyChanged("SelectedCategory");                
+                RaisePropertyChanged("SelectedCategory");
             }
         }
         public int CurrentSelectedWeek
@@ -94,7 +94,6 @@ namespace Schedule.UniversalApp.ViewModel
                 PreviousWeekCommand = new RelayCommand(GetPreviousWeekAsync),
                 NavigateToCurrentCommand = new RelayCommand(async () => await GetScheduleByWeekNumberAsync(DateTimeService.GetCurrentCalendarWeek)),
                 UpdateCommand = new RelayCommand(async () => await GetScheduleByWeekNumberAsync(CurrentSelectedWeek)),
-                SendFeedbackCommand = new RelayCommand<string>(SendFeedback)
             };
 
             Messenger.Default.Register<CategorySelectionMessage>(this, async (action) => await ReceiveCategoryMessageAsync(action));
@@ -102,13 +101,6 @@ namespace Schedule.UniversalApp.ViewModel
             Messenger.Default.Register<WeekSchedule>(this, (action) => CurrentWeekSchedule = action);
 
             LoadStateAsync();
-        }
-
-        private async void SendFeedback(string message)
-        {
-            double height = Window.Current.Bounds.Height * DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
-            double width = Window.Current.Bounds.Width * DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
-            await dataService.SendFeedback(new FeedbackForm(width, height, message));
         }
         private async void LoadStateAsync()
         {
@@ -137,7 +129,7 @@ namespace Schedule.UniversalApp.ViewModel
         async Task GetScheduleByWeekNumberAsync(int weekRequested)
         {
             CurrentSelectedWeek = weekRequested;
-            DisplayError = false;
+            IsFailure = false;
             IsLoading = true;
 
             CurrentWeekSchedule = new WeekSchedule();
@@ -147,14 +139,14 @@ namespace Schedule.UniversalApp.ViewModel
             }
             catch (Exception)
             {
-                DisplayError = true;
+                IsFailure = true;
             }
             finally
             {
                 IsLoading = false;
                 stateService.SaveWeekNumberState(CurrentSelectedWeek);
                 stateService.SaveCategoryState(SelectedCategory.Name);
-            }            
+            }
         }
     }
 }

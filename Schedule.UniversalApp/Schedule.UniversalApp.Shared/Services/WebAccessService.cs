@@ -29,7 +29,7 @@ namespace Schedule.UniversalApp.Services
             using (var client = new HttpClient())
             using (HttpResponseMessage response = await client.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")))
             {
-                return response.StatusCode.ToString();
+                return response.IsSuccessStatusCode ? "Success" : "Error";
             }
         }
     }

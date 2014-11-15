@@ -19,14 +19,14 @@ namespace Schedule.UniversalApp.ViewModel
         Category selectedCategory;
 
         public RelayCommand Update { get; set; }
-        public bool DisplayError
+        public bool IsFailure
         {
-            get { return status.DisplayError; }
+            get { return status.IsFailure; }
             set
             {
-                if (value == status.DisplayError) return;
-                status.DisplayError = value;
-                RaisePropertyChanged("DisplayError");
+                if (value == status.IsFailure) return;
+                status.IsFailure = value;
+                RaisePropertyChanged("IsFailure");
             }
         }
         public bool IsLoading
@@ -92,7 +92,7 @@ namespace Schedule.UniversalApp.ViewModel
         async void SetPropertiesAsync()
         {
             IsLoading = true;
-            DisplayError = false;
+            IsFailure = false;
             
             try
             {
@@ -100,7 +100,7 @@ namespace Schedule.UniversalApp.ViewModel
             }
             catch (NoConectionException)
             {
-                DisplayError = true;
+                IsFailure = true;
             }
             finally
             {

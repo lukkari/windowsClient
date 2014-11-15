@@ -4,6 +4,7 @@
     {
         public bool IsLoading { get; set; }
         public bool IsWeekNavigationEnabled { get; set; }
-        public bool DisplayError { get; set; }
+        public bool IsFailure { get; set; }
+        public bool IsSuccess { get; set; }
     }
 }
