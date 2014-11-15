@@ -1,4 +1,5 @@
 ﻿using Windows.Phone.UI.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -45,8 +46,31 @@ namespace Schedule.UniversalApp
             FeedbackBox.IsEnabled = false;
             FeedbackBox.IsEnabled = true;
 
-            var text = FeedbackBox.Text;
-            await ((FeedbackViewModel)this.DataContext).SendFeedbackAsync(text);
+            string text = FeedbackBox.Text;
+            if (text.Length == 0)
+            {
+                var message = new MessageDialog("You haven't written anything.", "Error");
+                message.ShowAsync();
+            }
+            else
+            {
+                ShowResultAsync(await ((FeedbackViewModel)this.DataContext).SendFeedbackAsync(text));    
+            }          
+        }
+
+        private void ShowResultAsync(bool b)
+        {
+            MessageDialog message;
+            if (b)
+            {
+                message = new MessageDialog("Feedback sent. Thank you for your contribution!", "Success");
+            }
+            else
+            {
+                message = new MessageDialog("Something went wrong. Please try again later.", "Error");
+            }
+            message.ShowAsync();
+            this.Frame.GoBack();
         }
     }
 }

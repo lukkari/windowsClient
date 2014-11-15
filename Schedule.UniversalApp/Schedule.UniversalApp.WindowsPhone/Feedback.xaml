@@ -10,25 +10,11 @@
 
     <Page.Resources>
         <local:BooleanToVisibilityConverter x:Key="VisibilityConverter"></local:BooleanToVisibilityConverter>
-    </Page.Resources>
-    
+    </Page.Resources>    
     <Page.BottomAppBar>
         <CommandBar x:Name="BottomBar" Background="{ThemeResource PhoneChromeBrush}">
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Name="Send" Label="Send" Icon="Send" Click="Send_OnClick">
-                    <AppBarButton.Flyout>
-                        <Flyout Placement="Full">
-                            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" FontSize="{ThemeResource TextStyleMediumFontSize}" Visibility="{Binding IsLoading, Converter={StaticResource VisibilityConverter}}" Margin="10,10,10,0">Sending...</TextBlock>
-                                <TextBlock Grid.Row="0" FontSize="{ThemeResource TextStyleMediumFontSize}" Visibility="{Binding IsSuccess, Converter={StaticResource VisibilityConverter}}" Margin="10,10,10,0">Sent! Thank you for your effort!</TextBlock>
-                                <TextBlock Grid.Row="0" FontSize="{ThemeResource TextStyleMediumFontSize}" Visibility="{Binding IsFailure, Converter={StaticResource VisibilityConverter}}" Margin="10,10,10,0">Error. Something went wrong.</TextBlock>
-                                </Grid>
-                        </Flyout>
-                    </AppBarButton.Flyout>
-                </AppBarButton>
+                <AppBarButton x:Name="Send" Label="Send" Icon="Send" Click="Send_OnClick"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
@@ -43,5 +29,6 @@
                 </DataTemplate>
             </TextBox.HeaderTemplate>
         </TextBox>
+        <ProgressRing Grid.Row="0" IsActive="{Binding IsLoading}" IsEnabled="False" Canvas.ZIndex="1"/>
     </Grid>
 </Page>

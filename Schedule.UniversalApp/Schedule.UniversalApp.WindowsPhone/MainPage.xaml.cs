@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using Windows.UI.Popups;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -14,6 +15,7 @@ namespace Schedule.UniversalApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
         }
 
         private void CategorySelection_Click(object sender, RoutedEventArgs e)
