@@ -31,6 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ApplicationStateService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IDataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\WebAccessService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UriService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\WebDataService.cs" />

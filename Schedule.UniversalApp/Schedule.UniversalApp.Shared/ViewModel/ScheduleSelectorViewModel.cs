@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight.Command;
 using Schedule.UniversalApp.Services;
 using System.Threading.Tasks;
+using Schedule.UniversalApp.Services.Interfaces;
 
 namespace Schedule.UniversalApp.ViewModel
 {
@@ -14,7 +15,7 @@ namespace Schedule.UniversalApp.ViewModel
         ObservableCollection<Group> groups;
         ObservableCollection<Teacher> teachers;
         ObservableCollection<Room> rooms;
-        DataService dataService = new DataService();        
+        private readonly IDataService dataService;
         Status status = new Status();
         Category selectedCategory;
 
@@ -80,8 +81,9 @@ namespace Schedule.UniversalApp.ViewModel
                 RaisePropertyChanged("SelectedCategory");
             }
         }
-        public ScheduleSelectorViewModel()
+        public ScheduleSelectorViewModel(IDataService dataService)
         {
+            this.dataService = dataService;
             SetPropertiesAsync();
             Update = new RelayCommand(SetPropertiesAsync);
         }

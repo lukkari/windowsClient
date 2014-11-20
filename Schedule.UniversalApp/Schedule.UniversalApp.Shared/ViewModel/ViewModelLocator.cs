@@ -1,5 +1,7 @@
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using Schedule.UniversalApp.Services;
+using Schedule.UniversalApp.Services.Interfaces;
 
 namespace Schedule.UniversalApp.ViewModel
 {
@@ -15,6 +17,11 @@ namespace Schedule.UniversalApp.ViewModel
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+            if (!SimpleIoc.Default.IsRegistered<IDataService>())
+            {
+                SimpleIoc.Default.Register<IDataService, DataService>();
+            }
+
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ScheduleSelectorViewModel>();
             SimpleIoc.Default.Register<WeekSelectorViewModel>();

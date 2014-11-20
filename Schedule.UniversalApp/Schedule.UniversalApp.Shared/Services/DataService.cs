@@ -4,10 +4,11 @@ using System.Threading.Tasks;
 using Schedule.UniversalApp.BaseTypes;
 using GalaSoft.MvvmLight.Messaging;
 using Schedule.UniversalApp.Model.ScheduleEntities;
+using Schedule.UniversalApp.Services.Interfaces;
 
 namespace Schedule.UniversalApp.Services
 {
-    public class DataService
+    public class DataService : IDataService
     {
         readonly WebDataService webData = new WebDataService();
 

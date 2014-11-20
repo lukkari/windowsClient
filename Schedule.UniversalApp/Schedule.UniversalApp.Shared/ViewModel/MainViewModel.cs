@@ -10,6 +10,7 @@ using System;
 using Schedule.UniversalApp.Model.ScheduleEntities;
 using Schedule.UniversalApp.Services;
 using System.Threading.Tasks;
+using Schedule.UniversalApp.Services.Interfaces;
 
 namespace Schedule.UniversalApp.ViewModel
 {
@@ -19,7 +20,7 @@ namespace Schedule.UniversalApp.ViewModel
         Category selectedCategory;
         int currentSelectedWeek;
         readonly Status status = new Status();
-        readonly DataService dataService = new DataService();
+        readonly IDataService dataService;
         ApplicationStateService stateService;
 
         public Commands Commands { get; set; }
@@ -86,8 +87,9 @@ namespace Schedule.UniversalApp.ViewModel
                 RaisePropertyChanged("CurrentWeekSchedule");
             }
         }
-        public MainViewModel()
+        public MainViewModel(IDataService dataService)
         {
+            this.dataService = dataService;
             Commands = new Commands
             {
                 NextWeekCommand = new RelayCommand(GetNextWeekAsync),
