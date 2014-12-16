@@ -7,7 +7,6 @@ namespace Schedule.UniversalApp.Model.ScheduleEntities
     public class DaySchedule
     {       
         DateTime date;       
-        public WeekDay WeekDay { get; set; }
         public ObservableCollection<ScheduleEntity> Subjects { get; set; }    
         public DateTime Date
         {
@@ -23,11 +22,12 @@ namespace Schedule.UniversalApp.Model.ScheduleEntities
         }
         public override string ToString()
         {
-            if (Date == DateTime.Today)
-            {
-                return "Today";
-            }
-            return Date == DateTime.Today.AddDays(1) ? "Tomorrow" : WeekDay.Name;
+            return Date.DayOfWeek.ToString();
+            //if (Date == DateTime.Today)
+            //{
+            //    return "Today";
+            //}
+            //return Date == DateTime.Today.AddDays(1) ? "Tomorrow" : WeekDay.Name;
         }
     }
 }
