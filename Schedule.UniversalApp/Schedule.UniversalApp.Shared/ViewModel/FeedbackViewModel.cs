@@ -11,7 +11,7 @@ namespace Schedule.UniversalApp.ViewModel
     public class FeedbackViewModel : ViewModelBase
     {
         readonly DataService dataService = new DataService();
-        readonly Status status = new Status();
+        readonly ApplicationState status = new ApplicationState();
 
         public bool IsFailure
         {

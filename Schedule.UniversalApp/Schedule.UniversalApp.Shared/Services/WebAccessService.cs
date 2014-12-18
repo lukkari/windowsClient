@@ -13,14 +13,11 @@ namespace Schedule.UniversalApp.Services
             using (var client = new HttpClient())
             using (HttpResponseMessage response = await client.GetAsync(uri))
             {
-                if (response.IsSuccessStatusCode)
+                if (!response.IsSuccessStatusCode) throw new NoConectionException();
+                using (HttpContent content = response.Content)
                 {
-                    using (HttpContent content = response.Content)
-                    {
-                        return await content.ReadAsStringAsync();
-                    }
+                    return await content.ReadAsStringAsync();
                 }
-                throw new NoConectionException();
             }
         }
 

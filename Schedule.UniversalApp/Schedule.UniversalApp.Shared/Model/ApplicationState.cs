@@ -1,6 +1,8 @@
-﻿namespace Schedule.UniversalApp.Model
+﻿using Schedule.UniversalApp.Services.Interfaces;
+
+namespace Schedule.UniversalApp.Model
 {
-    public class Status
+    public class ApplicationState : IApplicationStateService
     {
         public bool IsLoading { get; set; }
         public bool IsWeekNavigationEnabled { get; set; }

@@ -15,8 +15,8 @@ namespace Schedule.UniversalApp.ViewModel
         ObservableCollection<Group> groups;
         ObservableCollection<Teacher> teachers;
         ObservableCollection<Room> rooms;
-        private readonly IDataService dataService;
-        Status status = new Status();
+        readonly IDataService dataService;
+        readonly ApplicationState status = new ApplicationState();
         Category selectedCategory;
 
         public RelayCommand Update { get; set; }

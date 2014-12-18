@@ -1,6 +1,3 @@
-using System.ServiceModel;
-using Windows.Graphics.Display;
-using Windows.UI.Xaml;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -19,38 +16,38 @@ namespace Schedule.UniversalApp.ViewModel
         WeekSchedule currentWeekSchedule;
         Category selectedCategory;
         int currentSelectedWeek;
-        readonly Status status = new Status();
+        readonly IApplicationStateService applicationState;
         readonly IDataService dataService;
-        ApplicationStateService stateService;
+        readonly IScheduleStateService scheduleStateService;
 
         public Commands Commands { get; set; }
         public bool IsFailure
         {
-            get { return status.IsFailure; }
+            get { return applicationState.IsFailure; }
             set
             {
-                if (value == status.IsFailure) return;
-                status.IsFailure = value;
+                if (value == applicationState.IsFailure) return;
+                applicationState.IsFailure = value;
                 RaisePropertyChanged("IsFailure");
             }
         }
         public bool IsWeekNavigationEnabled
         {
-            get { return status.IsWeekNavigationEnabled; }
+            get { return applicationState.IsWeekNavigationEnabled; }
             set
             {
-                if (status.IsWeekNavigationEnabled == value) return;
-                status.IsWeekNavigationEnabled = value;
+                if (applicationState.IsWeekNavigationEnabled == value) return;
+                applicationState.IsWeekNavigationEnabled = value;
                 RaisePropertyChanged("IsWeekNavigationEnabled");
             }
         }
         public bool IsLoading
         {
-            get { return status.IsLoading; }
+            get { return applicationState.IsLoading; }
             set
             {
-                if (status.IsLoading == value) return;
-                status.IsLoading = value;
+                if (applicationState.IsLoading == value) return;
+                applicationState.IsLoading = value;
                 RaisePropertyChanged("IsLoading");
             }
         }
@@ -87,9 +84,12 @@ namespace Schedule.UniversalApp.ViewModel
                 RaisePropertyChanged("CurrentWeekSchedule");
             }
         }
-        public MainViewModel(IDataService dataService)
+        public MainViewModel(IDataService dataService, IScheduleStateService scheduleState, IApplicationStateService applicationState)
         {
             this.dataService = dataService;
+            this.scheduleStateService = scheduleState;
+            this.applicationState = applicationState;
+
             Commands = new Commands
             {
                 NextWeekCommand = new RelayCommand(GetNextWeekAsync),
@@ -106,8 +106,7 @@ namespace Schedule.UniversalApp.ViewModel
         }
         private async void LoadStateAsync()
         {
-            stateService = new ApplicationStateService();
-            State state = stateService.LoadState();
+            ScheduleState state = scheduleStateService.LoadState();
             if (!state.IsEmpty)
             {
                 await ReceiveCategoryMessageAsync(new CategorySelectionMessage() { Category = new Category() { Name = state.Category } });
@@ -146,8 +145,8 @@ namespace Schedule.UniversalApp.ViewModel
             finally
             {
                 IsLoading = false;
-                stateService.SaveWeekNumberState(CurrentSelectedWeek);
-                stateService.SaveCategoryState(SelectedCategory.Name);
+                scheduleStateService.SaveWeekNumberState(CurrentSelectedWeek);
+                scheduleStateService.SaveCategoryState(SelectedCategory.Name);
             }
         }
     }

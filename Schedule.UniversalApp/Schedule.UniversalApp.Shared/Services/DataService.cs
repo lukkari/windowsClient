@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Schedule.UniversalApp.BaseTypes;
-using GalaSoft.MvvmLight.Messaging;
 using Schedule.UniversalApp.Model.ScheduleEntities;
 using Schedule.UniversalApp.Services.Interfaces;
 
@@ -36,10 +35,6 @@ namespace Schedule.UniversalApp.Services
         public async Task<string> SendFeedback(FeedbackForm feedback)
         {
             return await webData.SendAsync(feedback);
-        }
-        void UpdateWeekSchedule(WeekSchedule validSchedule)
-        {
-            Messenger.Default.Send(validSchedule);
         }
     }
 }

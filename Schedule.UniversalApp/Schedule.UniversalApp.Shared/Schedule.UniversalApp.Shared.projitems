@@ -26,10 +26,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\ScheduleEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\Subject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\WeekSchedule.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\State.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\Status.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\ApplicationStateService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ApplicationState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IApplicationStateService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ScheduleStateService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IScheduleStateService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IDataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\WebAccessService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UriService.cs" />
