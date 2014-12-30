@@ -11,6 +11,7 @@
     <Page.Resources>
         <universalApp:BooleanToVisibilityConverter x:Key="VisibilityConverter"></universalApp:BooleanToVisibilityConverter>
     </Page.Resources>
+
     <Page.BottomAppBar>
         <CommandBar x:Name="BottomBar" Background="{ThemeResource PhoneChromeBrush}">
             <CommandBar.PrimaryCommands>
@@ -24,56 +25,56 @@
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
+
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="{ThemeResource PhoneChromeBrush}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <HyperlinkButton x:Name="CategorySelection" Grid.Column="0" Height="70" HorizontalAlignment="Stretch" Content="{Binding SelectedCategory}" Click="CategorySelection_Click" Canvas.ZIndex="1"/>
-                <HyperlinkButton x:Name="WeekSelection" Grid.Column="1"  Content="{Binding}" Height="70" Click="WeekSelector_Click" Background="DarkMagenta" Visibility="{Binding IsWeekNavigationEnabled, Converter={StaticResource VisibilityConverter}}" Foreground="White">
-                    <HyperlinkButton.ContentTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="15,0,15,0" Orientation="Vertical">
-                                <TextBlock Text="Week" FontSize="{ThemeResource TextStyleExtraLargeFontSize}"></TextBlock>
-                                <TextBlock Text="{Binding CurrentSelectedWeek}" HorizontalAlignment="Center" FontSize="{ThemeResource TextStyleMediumFontSize}"></TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </HyperlinkButton.ContentTemplate>
-                </HyperlinkButton>
-            </Grid>
-        <Pivot x:Name="SchedulePresenter" Grid.Row="1" ItemsSource="{Binding CurrentWeekSchedule.WeekDays}">
-            <Pivot.HeaderTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding}" Grid.Row="0" VerticalAlignment="Top" FontSize="{ThemeResource TextStyleExtraExtraLargeFontSize}" />
-                        <TextBlock Text="{Binding DayAndMonth}" Grid.Row="1" FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Bottom"/>
-                    </Grid>
-                </DataTemplate>
-            </Pivot.HeaderTemplate>
-            <Pivot.Resources>
-                <DataTemplate x:Key="PivotItemTemplate" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CategorySelection" Grid.Column="0" HorizontalAlignment="Stretch" Content="{Binding SelectedCategory}" Click="CategorySelection_Click" Style="{StaticResource NoMarginButton}"/>
+            <Button x:Name="WeekSelection" Grid.Column="1" BorderThickness="0"  Content="{Binding}" Click="WeekSelector_Click" Background="DarkMagenta"  Foreground="White" Style="{StaticResource NoMarginButton}" Visibility="{Binding IsWeekNavigationEnabled, Converter={StaticResource VisibilityConverter}}">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding CurrentSelectedWeek}" HorizontalAlignment="Center" FontSize="{ThemeResource TextStyleExtraLargeFontSize}"></TextBlock>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </Grid>
+
+        <Hub x:Name="SchedulePresenter" Grid.Row="1" DataContext="{Binding}">
+            <Hub.Resources>
+                <DataTemplate x:Key="HubDataTemplate" >
                     <Grid Margin="0,0,0,20" Background="{ThemeResource PhoneChromeBrush}" MinWidth="400" MinHeight="100">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                        </Grid.ColumnDefinitions>                       
+                        <Grid Background="darkMagenta" Grid.Column="0" DataContext="{Binding}" Margin="0,0,1,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding GetStringDate}" Grid.Row="0" FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Top" Margin="4,3,4,0" Foreground="White" />
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <TextBlock Text="{Binding Duration}" FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Center" Margin="5,0,4,0" Foreground="White" />
+                                <TextBlock Text="h." FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="{Binding GetStringEndTime}" Grid.Row="2" FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Bottom" Margin="4,0,4,3" Foreground="White" />
+                        </Grid>
                         <StackPanel Grid.Column="1">
                             <StackPanel DataContext="{Binding Subject}" HorizontalAlignment="Left">
-                                <TextBlock Width="300" Margin="15,0,0,0" x:Name="CourseField" HorizontalAlignment="Left" TextAlignment="Left" Text="{Binding Name}" FontSize="{StaticResource TextStyleLargeFontSize}" TextWrapping="Wrap"/>
+                                <TextBlock Width="300" Margin="15,0,0,0" x:Name="CourseField" HorizontalAlignment="Left" TextAlignment="Left" Text="{Binding Name}" FontSize="{ThemeResource TextStyleMediumFontSize}" TextWrapping="Wrap"/>
                             </StackPanel>
                             <ItemsControl ItemsSource="{Binding Rooms}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock Margin="15,0,0,0" Text="{Binding Name}"  FontSize="{StaticResource TextStyleMediumFontSize}"/>
+                                        <TextBlock Margin="15,0,0,0" Text="{Binding Name}"  FontSize="{StaticResource TextStyleSmallFontSize}"/>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
@@ -85,30 +86,29 @@
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
                         </StackPanel>
-                        <Grid Background="darkMagenta" Grid.Column="0" DataContext="{Binding}" Margin="0,0,1,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="{Binding GetStringDate}" Grid.Row="0" FontSize="{StaticResource TextStyleLargeFontSize}" VerticalAlignment="Top" Margin="4,3,4,0" Foreground="White" />
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <TextBlock Text="{Binding Duration}" FontSize="{StaticResource TextStyleLargeFontSize}" VerticalAlignment="Center" Margin="5,0,4,0" Foreground="White" />
-                                <TextBlock Text="h." FontSize="{StaticResource TextStyleLargeFontSize}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-                            </StackPanel>
-                            <TextBlock Text="{Binding GetStringEndTime}" Grid.Row="2" FontSize="{StaticResource TextStyleLargeFontSize}" VerticalAlignment="Bottom" Margin="4,0,4,3" Foreground="White" />
-                        </Grid>
                     </Grid>
                 </DataTemplate>
-            </Pivot.Resources>
-            <Pivot.ItemTemplate>
-                <DataTemplate>
-                    <PivotItem Margin="0,0,0,0">
-                        <ListView  ItemsSource="{Binding Subjects}" ItemTemplate="{StaticResource PivotItemTemplate}" ShowsScrollingPlaceholders="True" VerticalAlignment="Center"/>
-                    </PivotItem>
+                <DataTemplate x:Key="SubjectListDataTemplate">
+                    <ListView  ItemsSource="{Binding Subjects}" ItemTemplate="{StaticResource HubDataTemplate}" ShowsScrollingPlaceholders="True" VerticalAlignment="Center"/>
                 </DataTemplate>
-            </Pivot.ItemTemplate>
-        </Pivot>
+                <DataTemplate x:Key="SectionHeaderTemplate">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding}" Grid.Row="0" VerticalAlignment="Top" FontSize="{ThemeResource TextStyleExtraExtraLargeFontSize}" FontWeight="SemiLight" />
+                        <TextBlock Text="{Binding DayAndMonth}" Grid.Row="1" FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </DataTemplate>
+            </Hub.Resources>
+            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[0]}"/>
+            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[1]}"/>
+            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[2]}"/>
+            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[3]}"/>
+            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[4]}"/>
+        </Hub>
+
         <StackPanel Grid.Row="1" Visibility="{Binding IsFailure, Converter={StaticResource ResourceKey=VisibilityConverter}}"  VerticalAlignment="Center">
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Width="350" TextWrapping="WrapWholeWords"  FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Foreground="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Text="Error. We were unable to connect to the server."></TextBlock>
             <AppBarButton IsCompact="True" Icon="Refresh" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding UpdateCommand}"/>

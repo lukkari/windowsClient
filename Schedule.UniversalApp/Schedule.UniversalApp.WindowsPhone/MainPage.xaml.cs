@@ -1,4 +1,6 @@
-﻿using Windows.UI.Popups;
+﻿using System;
+using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -13,9 +15,10 @@ namespace Schedule.UniversalApp
             this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-
+            StatusBar statusBar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
+            await statusBar.HideAsync();
         }
 
         private void CategorySelection_Click(object sender, RoutedEventArgs e)
