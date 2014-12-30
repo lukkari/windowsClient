@@ -23,7 +23,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="10" Foreground="Silver" FontSize="{ThemeResource TextStyleLargeFontSize}" Text="Contact:"></TextBlock>
-                <HyperlinkButton Foreground="Red" FontSize="{ThemeResource TextStyleMediumFontSize}" >denis.anchugov@students.turkuamk.fi</HyperlinkButton>
+                <TextBlock Text="denis.anchugov@students.turkuamk.fi"  Margin="10" Foreground="Red" FontSize="{ThemeResource TextStyleMediumFontSize}"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="10" Foreground="Silver" FontSize="{ThemeResource TextStyleLargeFontSize}" Text="Web Version availible:"></TextBlock>

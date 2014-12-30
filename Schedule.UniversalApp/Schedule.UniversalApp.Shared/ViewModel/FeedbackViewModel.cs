@@ -3,7 +3,6 @@ using Windows.Graphics.Display;
 using Windows.UI.Xaml;
 using GalaSoft.MvvmLight;
 using Schedule.UniversalApp.Model;
-using Schedule.UniversalApp.Services;
 using Schedule.UniversalApp.Services.Interfaces;
 
 
