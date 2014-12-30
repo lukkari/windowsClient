@@ -12,5 +12,6 @@ namespace Schedule.UniversalApp.Services.Interfaces
         Task<ObservableCollection<Teacher>> GetTeachersAsync();
         Task<ObservableCollection<Group>> GetGroupsAsync();
         Task<WeekSchedule> GetWeekScheduleAsync(Category category, int weekNumber = 0);
+        Task<string> SendFeedback(FeedbackForm feedback);
     }
 }

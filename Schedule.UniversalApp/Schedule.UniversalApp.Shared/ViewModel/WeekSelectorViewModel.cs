@@ -1,13 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Schedule.UniversalApp.Model;
 using Schedule.UniversalApp.Services;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Schedule.UniversalApp.ViewModel
 {

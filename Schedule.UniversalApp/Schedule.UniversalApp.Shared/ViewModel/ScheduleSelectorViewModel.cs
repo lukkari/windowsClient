@@ -16,27 +16,27 @@ namespace Schedule.UniversalApp.ViewModel
         ObservableCollection<Teacher> teachers;
         ObservableCollection<Room> rooms;
         readonly IDataService dataService;
-        readonly ApplicationState status = new ApplicationState();
+        readonly IApplicationStateService stateService;
         Category selectedCategory;
 
         public RelayCommand Update { get; set; }
         public bool IsFailure
         {
-            get { return status.IsFailure; }
+            get { return stateService.IsFailure; }
             set
             {
-                if (value == status.IsFailure) return;
-                status.IsFailure = value;
+                if (value == stateService.IsFailure) return;
+                stateService.IsFailure = value;
                 RaisePropertyChanged("IsFailure");
             }
         }
         public bool IsLoading
         {
-            get { return status.IsLoading; }
+            get { return stateService.IsLoading; }
             set
             {
-                if (value == status.IsLoading) return;
-                status.IsLoading = value;
+                if (value == stateService.IsLoading) return;
+                stateService.IsLoading = value;
                 RaisePropertyChanged("IsLoading");
             }
         }
@@ -81,9 +81,10 @@ namespace Schedule.UniversalApp.ViewModel
                 RaisePropertyChanged("SelectedCategory");
             }
         }
-        public ScheduleSelectorViewModel(IDataService dataService)
+        public ScheduleSelectorViewModel(IDataService dataService, IApplicationStateService stateService)
         {
             this.dataService = dataService;
+            this.stateService = stateService;
             SetPropertiesAsync();
             Update = new RelayCommand(SetPropertiesAsync);
         }

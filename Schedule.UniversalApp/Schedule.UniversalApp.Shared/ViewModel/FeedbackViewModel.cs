@@ -4,54 +4,61 @@ using Windows.UI.Xaml;
 using GalaSoft.MvvmLight;
 using Schedule.UniversalApp.Model;
 using Schedule.UniversalApp.Services;
+using Schedule.UniversalApp.Services.Interfaces;
 
 
 namespace Schedule.UniversalApp.ViewModel
 {
     public class FeedbackViewModel : ViewModelBase
     {
-        readonly DataService dataService = new DataService();
-        readonly ApplicationState status = new ApplicationState();
+        private readonly IDataService dataService;
+        private readonly IApplicationStateService stateService;
 
         public bool IsFailure
         {
-            get { return status.IsFailure; }
+            get { return stateService.IsFailure; }
             set
             {
-                if (value == status.IsFailure) return;
-                status.IsFailure = value;
+                if (value == stateService.IsFailure) return;
+                stateService.IsFailure = value;
                 RaisePropertyChanged("IsFailure");
             }
         }
         public bool IsSendingButtonEnabled
         {
-            get { return status.IsWeekNavigationEnabled; }
+            get { return stateService.IsWeekNavigationEnabled; }
             set
             {
-                if (status.IsWeekNavigationEnabled == value) return;
-                status.IsWeekNavigationEnabled = value;
+                if (stateService.IsWeekNavigationEnabled == value) return;
+                stateService.IsWeekNavigationEnabled = value;
                 RaisePropertyChanged("IsSendingButtonEnabled");
             }
         }
         public bool IsLoading
         {
-            get { return status.IsLoading; }
+            get { return stateService.IsLoading; }
             set
             {
-                if (status.IsLoading == value) return;
-                status.IsLoading = value;
+                if (stateService.IsLoading == value) return;
+                stateService.IsLoading = value;
                 RaisePropertyChanged("IsLoading");
             }
         }
         public bool IsSuccess
         {
-            get { return status.IsSuccess; }
+            get { return stateService.IsSuccess; }
             set
             {
-                if (status.IsSuccess == value) return;
-                status.IsSuccess = value;
+                if (stateService.IsSuccess == value) return;
+                stateService.IsSuccess = value;
                 RaisePropertyChanged("IsSuccess");
             }
+        }
+
+        public FeedbackViewModel(IDataService dataService, IApplicationStateService stateService)
+        {
+            this.dataService = dataService;
+            this.stateService = stateService;
         }
 
         public async Task<bool> SendFeedbackAsync(string message)
