@@ -19,7 +19,8 @@
                 <AppBarButton x:Name="Forward" Icon="Forward" Label="Next" Command="{Binding Commands.NextWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="Feedback" Label="leave a feedback" Click="Feedback_OnClick" />
+                <AppBarButton x:Name="Feedback" Label="feedback" Click="Feedback_OnClick" />
+                <AppBarButton x:Name="About" Label="about" Click="About_OnClick" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

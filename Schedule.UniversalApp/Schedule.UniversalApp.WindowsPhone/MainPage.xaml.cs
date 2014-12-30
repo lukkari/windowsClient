@@ -32,5 +32,10 @@ namespace Schedule.UniversalApp
         {
             this.Frame.Navigate(typeof(Feedback));
         }
+
+        private void About_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(About));
+        }
     }
 }
