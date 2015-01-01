@@ -1,4 +1,6 @@
 ﻿using Windows.ApplicationModel;
+using Windows.Phone.UI.Input;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -9,6 +11,22 @@ namespace Schedule.UniversalApp
         public About()
         {
             this.InitializeComponent();
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            var frame = Window.Current.Content as Frame;
+            if (frame == null)
+            {
+                return;
+            }
+
+            if (frame.CanGoBack)
+            {
+                frame.GoBack();
+                e.Handled = true;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
