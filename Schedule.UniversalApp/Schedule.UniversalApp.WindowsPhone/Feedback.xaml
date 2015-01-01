@@ -10,7 +10,7 @@
 
     <Page.Resources>
         <local:BooleanToVisibilityConverter x:Key="VisibilityConverter"></local:BooleanToVisibilityConverter>
-    </Page.Resources>    
+    </Page.Resources>
     <Page.BottomAppBar>
         <CommandBar x:Name="BottomBar" Background="{ThemeResource PhoneChromeBrush}">
             <CommandBar.PrimaryCommands>

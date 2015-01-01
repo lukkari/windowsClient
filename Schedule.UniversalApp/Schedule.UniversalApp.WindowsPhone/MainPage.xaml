@@ -10,6 +10,64 @@
 
     <Page.Resources>
         <universalApp:BooleanToVisibilityConverter x:Key="VisibilityConverter"></universalApp:BooleanToVisibilityConverter>
+        <Style x:Key="PivotHeaderModified" TargetType="Pivot">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Foreground" Value="{ThemeResource PhoneForegroundBrush}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <Grid/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Pivot">
+                        <Grid x:Name="RootElement" Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Orientation">
+                                    <VisualState x:Name="Portrait">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="TitleContentControl">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource PivotPortraitThemePadding}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Landscape">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="TitleContentControl">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource PivotLandscapeThemePadding}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentControl Visibility="Collapsed" x:Name="TitleContentControl" ContentTemplate="{TemplateBinding TitleTemplate}" Content="{TemplateBinding Title}" Style="{StaticResource PivotTitleContentControlStyle}"/>
+                            <ScrollViewer x:Name="ScrollViewer" HorizontalSnapPointsAlignment="Center" HorizontalSnapPointsType="MandatorySingle" HorizontalScrollBarVisibility="Hidden" Margin="{TemplateBinding Padding}" Grid.Row="1" Template="{StaticResource ScrollViewerScrollBarlessTemplate}" VerticalSnapPointsType="None" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" VerticalContentAlignment="Stretch" ZoomMode="Disabled">
+                                <PivotPanel x:Name="Panel">
+                                    <PivotHeaderPanel x:Name="Header">
+                                        <PivotHeaderPanel.RenderTransform>
+                                            <CompositeTransform x:Name="HeaderTranslateTransform" TranslateX="0"/>
+                                        </PivotHeaderPanel.RenderTransform>
+                                    </PivotHeaderPanel>
+                                    <ItemsPresenter x:Name="PivotItemPresenter">
+                                        <ItemsPresenter.RenderTransform>
+                                            <TranslateTransform x:Name="ItemsPresenterTranslateTransform" X="0"/>
+                                        </ItemsPresenter.RenderTransform>
+                                    </ItemsPresenter>
+                                </PivotPanel>
+                            </ScrollViewer>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
 
     <Page.BottomAppBar>
@@ -36,8 +94,8 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button x:Name="CategorySelection" Grid.Column="0" HorizontalAlignment="Stretch" Content="{Binding SelectedCategory}" Click="CategorySelection_Click" Style="{StaticResource NoMarginButton}"/>
-            <Button x:Name="WeekSelection" Grid.Column="1" BorderThickness="0"  Content="{Binding}" Click="WeekSelector_Click" Background="DarkMagenta"  Foreground="White" Style="{StaticResource NoMarginButton}" Visibility="{Binding IsWeekNavigationEnabled, Converter={StaticResource VisibilityConverter}}">
+            <Button x:Name="CategorySelection" Grid.Column="0" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" HorizontalAlignment="Stretch" Content="{Binding SelectedCategory}" Click="CategorySelection_Click" Style="{StaticResource NoMarginButton}"/>
+            <Button x:Name="WeekSelection" Grid.Column="1" Content="{Binding}" Background="DarkMagenta"  Foreground="White" Visibility="{Binding IsWeekNavigationEnabled, Converter={StaticResource VisibilityConverter}}" Click="WeekSelector_Click" Style="{StaticResource NoMarginButton}" >
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding CurrentSelectedWeek}" HorizontalAlignment="Center" FontSize="{ThemeResource TextStyleExtraLargeFontSize}"></TextBlock>
@@ -46,68 +104,23 @@
             </Button>
         </Grid>
 
-        <Hub x:Name="SchedulePresenter" Grid.Row="1" DataContext="{Binding}">
-            <Hub.Resources>
-                <DataTemplate x:Key="HubDataTemplate" >
-                    <Grid Margin="0,0,0,20" Background="{ThemeResource PhoneChromeBrush}" MinWidth="400" MinHeight="100">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>                       
-                        <Grid Background="darkMagenta" Grid.Column="0" DataContext="{Binding}" Margin="0,0,1,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="{Binding GetStringDate}" Grid.Row="0" FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Top" Margin="4,3,4,0" Foreground="White" />
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <TextBlock Text="{Binding Duration}" FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Center" Margin="5,0,4,0" Foreground="White" />
-                                <TextBlock Text="h." FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-                            </StackPanel>
-                            <TextBlock Text="{Binding GetStringEndTime}" Grid.Row="2" FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Bottom" Margin="4,0,4,3" Foreground="White" />
-                        </Grid>
-                        <StackPanel Grid.Column="1">
-                            <StackPanel DataContext="{Binding Subject}" HorizontalAlignment="Left">
-                                <TextBlock Width="300" Margin="15,0,0,0" x:Name="CourseField" HorizontalAlignment="Left" TextAlignment="Left" Text="{Binding Name}" FontSize="{ThemeResource TextStyleMediumFontSize}" TextWrapping="Wrap"/>
-                            </StackPanel>
-                            <ItemsControl ItemsSource="{Binding Rooms}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Margin="15,0,0,0" Text="{Binding Name}"  FontSize="{StaticResource TextStyleSmallFontSize}"/>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                            <ItemsControl ItemsSource="{Binding Teachers}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Margin="15,0,0,0" Text="{Binding Name}"/>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-                    </Grid>
+        <Pivot Style="{StaticResource PivotHeaderModified}"  Grid.Row="1" DataContext="{Binding}" ItemsSource="{Binding CurrentWeekSchedule.WeekDays}">
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,10,0,0">
+                        <TextBlock Text="{Binding}" FontSize="{ThemeResource TextStyleExtraExtraLargeFontSize}" FontWeight="SemiLight" />
+                        <TextBlock Text="{Binding DayAndMonth}" FontSize="{StaticResource TextStyleMediumFontSize}"/>
+                    </StackPanel>
                 </DataTemplate>
-                <DataTemplate x:Key="SubjectListDataTemplate">
-                    <ListView  ItemsSource="{Binding Subjects}" ItemTemplate="{StaticResource HubDataTemplate}" ShowsScrollingPlaceholders="True" VerticalAlignment="Center"/>
+            </Pivot.HeaderTemplate>
+            <Pivot.ItemTemplate>
+                <DataTemplate>
+                    <ScrollViewer>
+                        <universalApp:SchedulePresenter></universalApp:SchedulePresenter>
+                    </ScrollViewer>
                 </DataTemplate>
-                <DataTemplate x:Key="SectionHeaderTemplate">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding}" Grid.Row="0" VerticalAlignment="Top" FontSize="{ThemeResource TextStyleExtraExtraLargeFontSize}" FontWeight="SemiLight" />
-                        <TextBlock Text="{Binding DayAndMonth}" Grid.Row="1" FontSize="{StaticResource TextStyleMediumFontSize}" VerticalAlignment="Bottom"/>
-                    </Grid>
-                </DataTemplate>
-            </Hub.Resources>
-            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[0]}"/>
-            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[1]}"/>
-            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[2]}"/>
-            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[3]}"/>
-            <HubSection HeaderTemplate="{StaticResource SectionHeaderTemplate}" ContentTemplate="{StaticResource SubjectListDataTemplate}" DataContext="{Binding CurrentWeekSchedule.WeekDays[4]}"/>
-        </Hub>
+            </Pivot.ItemTemplate>
+        </Pivot>
 
         <StackPanel Grid.Row="1" Visibility="{Binding IsFailure, Converter={StaticResource ResourceKey=VisibilityConverter}}"  VerticalAlignment="Center">
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Width="350" TextWrapping="WrapWholeWords"  FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Foreground="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Text="Error. We were unable to connect to the server."></TextBlock>

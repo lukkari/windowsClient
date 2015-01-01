@@ -19,9 +19,9 @@
                     <TextBlock Text="Week" Grid.Column="0" TextWrapping="Wrap" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Foreground="{ThemeResource PhoneForegroundBrush }"></TextBlock>
                     <TextBlock Text="{Binding WeekNum}" Grid.Column="1" Margin="10,0,0,0"  TextWrapping="Wrap" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Foreground="{ThemeResource PhoneForegroundBrush }"></TextBlock>
                     <TextBlock Text="{Binding DayAndMonth}" Grid.Column="2"  HorizontalAlignment="Stretch" TextAlignment="Center" TextWrapping="Wrap" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Foreground="{ThemeResource PhoneForegroundBrush }"></TextBlock>
-                </Grid>                             
+                </Grid>
             </DataTemplate>
-        </Grid.Resources>       
+        </Grid.Resources>
         <ListBox ItemTemplate="{StaticResource ResourceKey= WeeksListBoxTemplate}" ItemsSource="{Binding Weeks}" Background="{ThemeResource PhoneBackgroundBrush}" SelectedItem="{Binding SelectedWeek , Mode=TwoWay}" Loaded="FrameworkElement_OnLoaded" Tapped="UIElement_OnTapped"></ListBox>
     </Grid>
 </Page>
