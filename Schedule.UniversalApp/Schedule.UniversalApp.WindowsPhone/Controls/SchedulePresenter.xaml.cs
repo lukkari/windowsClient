@@ -26,9 +26,9 @@ namespace Schedule.UniversalApp
             {
                 foreach (var subject in timetable.Subjects)
                 {
-                    if (subject.Date.Hour != i) continue;
+                    if (subject.Date.Start.Hour != i) continue;
                     DayPanel.Children.Add(new SubjectPanel(subject));
-                    i = i + subject.Duration;
+                    i = i + subject.Date.Duration;
                 }
                 DayPanel.Children.Add(new SubjectPanel(i));
                 i++;

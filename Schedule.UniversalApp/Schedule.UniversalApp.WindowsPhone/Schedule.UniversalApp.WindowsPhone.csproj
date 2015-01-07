@@ -93,13 +93,13 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SchedulePresenter.xaml.cs">
+    <Compile Include="Controls\SchedulePresenter.xaml.cs">
       <DependentUpon>SchedulePresenter.xaml</DependentUpon>
     </Compile>
     <Compile Include="ScheduleSelector.xaml.cs">
       <DependentUpon>ScheduleSelector.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SubjectPanel.xaml.cs">
+    <Compile Include="Controls\SubjectPanel.xaml.cs">
       <DependentUpon>SubjectPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="WeekSelector.xaml.cs">
@@ -124,7 +124,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SchedulePresenter.xaml">
+    <Page Include="Controls\SchedulePresenter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,7 +132,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SubjectPanel.xaml">
+    <Page Include="Controls\SubjectPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

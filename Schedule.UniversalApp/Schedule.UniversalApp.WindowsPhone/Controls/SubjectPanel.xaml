@@ -11,14 +11,14 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Background="DarkMagenta">
+        <Grid Grid.Column="0" Background="{ThemeResource PhoneAccentBrush}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock x:Name="StartTime" Grid.Row="0" Margin="5,0,5,0"   FontSize="{ThemeResource TextStyleMediumFontSize}" TextAlignment="Center" VerticalAlignment="Top" Foreground="White"></TextBlock>
-            <TextBlock x:Name="Duration" Grid.Row="1" Text="-" TextAlignment="Center" VerticalAlignment="Center" Foreground="White"></TextBlock>
+            <TextBlock x:Name="Duration" Grid.Row="1" Text="-" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="{ThemeResource TextStyleMediumFontSize}"></TextBlock>
             <TextBlock x:Name="EndTime" Grid.Row="2" Margin="5,0,5,0" FontSize="{ThemeResource TextStyleMediumFontSize}" TextAlignment="Center" VerticalAlignment="Bottom" Foreground="White"></TextBlock>
         </Grid>
         <StackPanel Grid.Column="1" Background="{ThemeResource PhoneChromeBrush}">

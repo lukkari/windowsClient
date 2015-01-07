@@ -10,10 +10,10 @@ namespace Schedule.UniversalApp
         public SubjectPanel(ScheduleEntity scheduleEntity)
         {
             this.InitializeComponent();
-            StartTime.Text = scheduleEntity.GetStringDate;
-            Duration.Text = scheduleEntity.Duration + "h.";
-            EndTime.Text = scheduleEntity.GetStringEndTime;
-            SetSize(scheduleEntity.Duration);
+            StartTime.Text = scheduleEntity.Date.Start.ToString("HH:mm");
+            Duration.Text = scheduleEntity.Date.Duration + "h.";
+            EndTime.Text = scheduleEntity.Date.End.ToString("HH:mm");
+            SetSize(scheduleEntity.Date.Duration);
             DescriptionPanel.Text = scheduleEntity.Subject.Name;
             Room.Text = string.Join(",", scheduleEntity.Rooms);
             TeacherName.Text = string.Join(",", scheduleEntity.Teachers);

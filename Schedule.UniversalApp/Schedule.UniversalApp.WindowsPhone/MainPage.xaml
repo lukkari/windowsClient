@@ -71,7 +71,7 @@
     </Page.Resources>
 
     <Page.BottomAppBar>
-        <CommandBar x:Name="BottomBar" Background="{ThemeResource PhoneChromeBrush}">
+        <CommandBar Background="{ThemeResource PhoneChromeBrush}">
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="Back" Icon="Back" Label="Previous" Command="{Binding Commands.PreviousWeekCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
                 <AppBarButton x:Name="Current" Icon="GoToToday" Label="Current" Command="{Binding Commands.NavigateToCurrentCommand}" IsEnabled="{Binding IsWeekNavigationEnabled}"/>
@@ -84,7 +84,7 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid x:Name="LayoutRoot">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -95,7 +95,7 @@
                 <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button x:Name="CategorySelection" Grid.Column="0" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" HorizontalAlignment="Stretch" Content="{Binding SelectedCategory}" Click="CategorySelection_Click" Style="{StaticResource NoMarginButton}"/>
-            <Button x:Name="WeekSelection" Grid.Column="1" Content="{Binding}" Background="DarkMagenta"  Foreground="White" Visibility="{Binding IsWeekNavigationEnabled, Converter={StaticResource VisibilityConverter}}" Click="WeekSelector_Click" Style="{StaticResource NoMarginButton}" >
+            <Button x:Name="WeekSelection" Grid.Column="1" Content="{Binding}" Background="{ThemeResource PhoneAccentBrush}"  Foreground="White" Visibility="{Binding IsWeekNavigationEnabled, Converter={StaticResource VisibilityConverter}}" Click="WeekSelector_Click" Style="{StaticResource NoMarginButton}" >
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding CurrentSelectedWeek}" HorizontalAlignment="Center" FontSize="{ThemeResource TextStyleExtraLargeFontSize}"></TextBlock>
