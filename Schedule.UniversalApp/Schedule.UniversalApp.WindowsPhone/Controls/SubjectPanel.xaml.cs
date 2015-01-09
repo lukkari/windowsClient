@@ -1,6 +1,5 @@
 ﻿using System;
 using Windows.UI.Xaml.Controls;
-
 using Schedule.UniversalApp.Model.ScheduleEntities;
 
 namespace Schedule.UniversalApp
@@ -14,9 +13,9 @@ namespace Schedule.UniversalApp
             Duration.Text = scheduleEntity.Date.Duration + "h.";
             EndTime.Text = scheduleEntity.Date.End.ToString("HH:mm");
             SetSize(scheduleEntity.Date.Duration);
-            DescriptionPanel.Text = scheduleEntity.Subject.Name;
+            TitlePanel.Text = scheduleEntity.Subject.Name;
             Room.Text = string.Join(",", scheduleEntity.Rooms);
-            TeacherName.Text = string.Join(",", scheduleEntity.Teachers);
+            TeachersName.Text = string.Join(", ", scheduleEntity.Teachers);
         }
 
         //TODO: Needs better implementation.

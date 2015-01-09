@@ -1,10 +1,14 @@
-﻿using Windows.Phone.UI.Input;
+﻿using System.Collections.Generic;
+using Windows.Phone.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
+using Schedule.UniversalApp.BaseTypes;
+using Schedule.UniversalApp.Model;
+using Schedule.UniversalApp.Model.ScheduleEntities;
 
 namespace Schedule.UniversalApp
 {

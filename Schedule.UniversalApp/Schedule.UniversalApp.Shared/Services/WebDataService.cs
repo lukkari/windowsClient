@@ -41,5 +41,11 @@ namespace Schedule.UniversalApp.Services
             string message = await Task.Factory.StartNew(() => JsonConvert.SerializeObject(feedback));
             return await httpClient.PostAsync(uriProvider.GetMessagingUri, message);
         }
+
+        public async Task<ObservableCollection<Filter>> GetFiltersAsync()
+        {
+            string httpResponse = await httpClient.GetAsync(uriProvider.GetFiltersUri);
+            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<ObservableCollection<Filter>>(httpResponse));
+        }
     }
 }

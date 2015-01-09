@@ -4,33 +4,34 @@ namespace Schedule.UniversalApp.Services
 {
     public class UriService
     {
-        const string ScheduleUrl = "http://lukkari.dc.turkuamk.fi/api/schedule/";
-        const string GroupCategoryUrl = "http://lukkari.dc.turkuamk.fi/api/groups";
-        const string RoomCategoryUrl = "http://lukkari.dc.turkuamk.fi/api/rooms";
-        const string TeacherCategoryUrl = "http://lukkari.dc.turkuamk.fi/api/teachers";
-        const string MessageUrl = "http://lukkari.dc.turkuamk.fi/api/message?";
+        private const string ApiUrl = "http://lukkari.dc.turkuamk.fi/api/";
 
         public Uri GetScheduleUri(string categoryName, int weekNumber)
         {
-            return new Uri(ScheduleUrl + categoryName.ToLower() + "?w=" + weekNumber.ToString());
+            return new Uri(ApiUrl + "schedule/" + categoryName.ToLower() + "?w=" + weekNumber.ToString());
         }
 
         public Uri RoomsUri
         {
-            get { return new Uri(RoomCategoryUrl); }
+            get { return new Uri(ApiUrl + "rooms"); }
         }
         public Uri GroupsUri
         {
-            get { return new Uri(GroupCategoryUrl); }
+            get { return new Uri(ApiUrl + "groups"); }
         }
         public Uri TeachersUri
         {
-            get { return new Uri(TeacherCategoryUrl); }
+            get { return new Uri(ApiUrl + "teachers"); }
         }
 
         public Uri GetMessagingUri
         {
-            get { return new Uri(MessageUrl); }
+            get { return new Uri(ApiUrl + "message?"); }
+        }
+
+        public Uri GetFiltersUri
+        {
+            get { return  new Uri(ApiUrl + "filters");}
         }
     }
 }

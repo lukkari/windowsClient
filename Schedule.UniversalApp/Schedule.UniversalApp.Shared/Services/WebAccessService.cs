@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Net.Http.Headers;
+using System.Text;
+using Windows.UI.Xaml.Media;
 using Schedule.UniversalApp.Model;
 using System;
 using System.Net.Http;
@@ -11,14 +13,18 @@ namespace Schedule.UniversalApp.Services
         public async Task<string> GetAsync(Uri uri)
         {
             using (var client = new HttpClient())
-            using (HttpResponseMessage response = await client.GetAsync(uri))
             {
-                if (!response.IsSuccessStatusCode) throw new NoConectionException();
-                using (HttpContent content = response.Content)
+                //Temprorary discard cache.
+                client.DefaultRequestHeaders.CacheControl = CacheControlHeaderValue.Parse("no-cache");
+                using (HttpResponseMessage response = await client.GetAsync(uri))
                 {
-                    return await content.ReadAsStringAsync();
+                    if (!response.IsSuccessStatusCode) throw new NoConectionException();
+                    using (HttpContent content = response.Content)
+                    {
+                        return await content.ReadAsStringAsync();
+                    }
                 }
-            }
+            }           
         }
 
         public async Task<string> PostAsync( Uri uri, string content)

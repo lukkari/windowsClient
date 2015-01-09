@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Messages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\Date.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\DaySchedule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\Filter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\ScheduleEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\Subject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScheduleEntities\WeekSchedule.cs" />

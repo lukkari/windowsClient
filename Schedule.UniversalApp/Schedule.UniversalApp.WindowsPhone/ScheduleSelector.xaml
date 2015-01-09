@@ -12,6 +12,16 @@
         <local:BooleanToVisibilityConverter x:Key="VisibilityConverter"></local:BooleanToVisibilityConverter>
     </Page.Resources>
 
+    <Page.BottomAppBar>
+        <CommandBar Visibility="Collapsed">
+            <AppBarButton Icon="Filter">
+                <AppBarButton.Flyout>
+                    <ListPickerFlyout ItemsSource="{Binding Filters}" SelectionMode="Multiple"/>
+                </AppBarButton.Flyout>
+                </AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -19,17 +29,17 @@
         <Pivot x:Name="CategorySelectionPivot" Title="Select from:">
             <Pivot.Resources>
                 <DataTemplate x:Key="FilterListBoxTemplate">
-                    <TextBlock Text="{Binding}" TextWrapping="Wrap" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Foreground="{ThemeResource PhoneForegroundBrush }"/>
+                    <TextBlock Text="{Binding}" DataContext="{Binding}" TextWrapping="Wrap" Visibility="{Binding IsVisible , Converter={StaticResource VisibilityConverter}}" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Foreground="{ThemeResource PhoneForegroundBrush }"/>
                 </DataTemplate>
             </Pivot.Resources>
-            <PivotItem x:Name="Groups" Header="groups">
-                <ListBox ItemTemplate="{StaticResource ResourceKey= FilterListBoxTemplate}" ItemsSource="{Binding Groups}" Background="{ThemeResource PhoneBackgroundBrush}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" />
+            <PivotItem Header="groups">
+                <ListBox x:Name="Groups" ItemTemplate="{StaticResource ResourceKey= FilterListBoxTemplate}" ItemsSource="{Binding Groups}" Background="{ThemeResource PhoneBackgroundBrush}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" />
             </PivotItem>
-            <PivotItem x:Name="Teachers" Header="teachers">
-                <ListBox ItemTemplate="{StaticResource ResourceKey= FilterListBoxTemplate}" ItemsSource="{Binding Teachers}" Background="{ThemeResource PhoneBackgroundBrush}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" />
+            <PivotItem Header="teachers">
+                <ListBox x:Name="Teachers" ItemTemplate="{StaticResource ResourceKey= FilterListBoxTemplate}" ItemsSource="{Binding Teachers}" Background="{ThemeResource PhoneBackgroundBrush}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" />
             </PivotItem>
-            <PivotItem x:Name="Rooms" Header="rooms">
-                <ListBox ItemTemplate="{StaticResource ResourceKey= FilterListBoxTemplate}" ItemsSource="{Binding Rooms}" Background="{ThemeResource PhoneBackgroundBrush}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" />
+            <PivotItem Header="rooms">
+                <ListBox x:Name="Rooms" ItemTemplate="{StaticResource ResourceKey= FilterListBoxTemplate}" ItemsSource="{Binding Rooms}" Background="{ThemeResource PhoneBackgroundBrush}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" />
             </PivotItem>
         </Pivot>
         <ProgressRing Grid.Row="0" IsActive="{Binding IsLoading}" IsEnabled="False" Canvas.ZIndex="1"/>

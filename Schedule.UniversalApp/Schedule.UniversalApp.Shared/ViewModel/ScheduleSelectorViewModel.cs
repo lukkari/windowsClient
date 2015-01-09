@@ -4,7 +4,7 @@ using Schedule.UniversalApp.BaseTypes;
 using GalaSoft.MvvmLight.Messaging;
 using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight.Command;
-using Schedule.UniversalApp.Services;
+using Schedule.UniversalApp.Model.ScheduleEntities;
 using System.Threading.Tasks;
 using Schedule.UniversalApp.Services.Interfaces;
 
@@ -15,6 +15,8 @@ namespace Schedule.UniversalApp.ViewModel
         ObservableCollection<Group> groups;
         ObservableCollection<Teacher> teachers;
         ObservableCollection<Room> rooms;
+        ObservableCollection<Filter> filters;
+        
         readonly IDataService dataService;
         readonly IApplicationStateService stateService;
         Category selectedCategory;
@@ -40,6 +42,17 @@ namespace Schedule.UniversalApp.ViewModel
                 RaisePropertyChanged("IsLoading");
             }
         }
+        public ObservableCollection<Filter> Filters
+        {
+            get { return filters; }
+            set
+            {
+                if (value == filters) return;
+                filters = value;
+                RaisePropertyChanged("Filters");
+            }
+        }
+
         public ObservableCollection<Room> Rooms
         {
             get { return rooms; }
@@ -100,6 +113,7 @@ namespace Schedule.UniversalApp.ViewModel
             try
             {
                 await SetScheduleCategoriesAsync();
+                await SetFilters();
             }
             catch (NoConectionException)
             {
@@ -110,6 +124,12 @@ namespace Schedule.UniversalApp.ViewModel
                 IsLoading = false;
             }
         }
+
+        private async Task SetFilters()
+        {
+            Filters = await dataService.GetFiltersAsync();
+        }
+
         async Task SetScheduleCategoriesAsync()
         {
             Rooms = await dataService.GetRoomsAsync();

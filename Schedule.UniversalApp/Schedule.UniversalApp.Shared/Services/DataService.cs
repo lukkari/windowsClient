@@ -36,5 +36,10 @@ namespace Schedule.UniversalApp.Services
         {
             return await webData.SendAsync(feedback);
         }
+
+        public async Task<ObservableCollection<Filter>> GetFiltersAsync()
+        {
+           return await webData.GetFiltersAsync();
+        }
     }
 }
