@@ -28,7 +28,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (value == applicationState.IsFailure) return;
                 applicationState.IsFailure = value;
-                RaisePropertyChanged("IsFailure");
+                RaisePropertyChanged();
             }
         }
         public bool IsWeekNavigationEnabled
@@ -38,7 +38,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (applicationState.IsWeekNavigationEnabled == value) return;
                 applicationState.IsWeekNavigationEnabled = value;
-                RaisePropertyChanged("IsWeekNavigationEnabled");
+                RaisePropertyChanged();
             }
         }
         public bool IsLoading
@@ -48,7 +48,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (applicationState.IsLoading == value) return;
                 applicationState.IsLoading = value;
-                RaisePropertyChanged("IsLoading");
+                RaisePropertyChanged();
             }
         }
         public Category SelectedCategory
@@ -59,7 +59,7 @@ namespace Schedule.UniversalApp.ViewModel
                 if (selectedCategory == value) return;
                 IsWeekNavigationEnabled = true;
                 selectedCategory = value;
-                RaisePropertyChanged("SelectedCategory");
+                RaisePropertyChanged();
             }
         }
         public int CurrentSelectedWeek
@@ -69,7 +69,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (value == currentSelectedWeek) return;
                 currentSelectedWeek = value;
-                RaisePropertyChanged("CurrentSelectedWeek");
+                RaisePropertyChanged();
                 //Update selected week on WeekSelector page.    
                 Messenger.Default.Send<int>(value);
             }
@@ -81,7 +81,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (currentWeekSchedule == value) return;
                 currentWeekSchedule = value;
-                RaisePropertyChanged("CurrentWeekSchedule");
+                RaisePropertyChanged();
             }
         }
         public MainViewModel(IDataService dataService, IScheduleStateService scheduleState, IApplicationStateService applicationState)

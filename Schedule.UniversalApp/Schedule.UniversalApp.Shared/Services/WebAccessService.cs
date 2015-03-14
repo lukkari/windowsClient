@@ -14,8 +14,6 @@ namespace Schedule.UniversalApp.Services
         {
             using (var client = new HttpClient())
             {
-                //Temprorary discard cache.
-                client.DefaultRequestHeaders.CacheControl = CacheControlHeaderValue.Parse("no-cache");
                 using (HttpResponseMessage response = await client.GetAsync(uri))
                 {
                     if (!response.IsSuccessStatusCode) throw new NoConectionException();

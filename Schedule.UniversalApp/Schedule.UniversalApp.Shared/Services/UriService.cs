@@ -8,7 +8,7 @@ namespace Schedule.UniversalApp.Services
 
         public Uri GetScheduleUri(string categoryName, int weekNumber)
         {
-            return new Uri(ApiUrl + "schedule/" + categoryName.ToLower() + "?w=" + weekNumber.ToString());
+            return new Uri(ApiUrl + "schedule/" + categoryName.ToLower() + "?w=" + weekNumber);
         }
 
         public Uri RoomsUri

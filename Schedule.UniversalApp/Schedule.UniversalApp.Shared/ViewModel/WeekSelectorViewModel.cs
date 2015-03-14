@@ -20,7 +20,7 @@ namespace Schedule.UniversalApp.ViewModel
                 if (value == selectedWeek) return;
                 selectedWeek = value;
                 PassWeekNumber();
-                RaisePropertyChanged("SelectedWeek");
+                RaisePropertyChanged();
             }
         }
 

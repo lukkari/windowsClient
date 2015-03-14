@@ -16,7 +16,7 @@ namespace Schedule.UniversalApp.ViewModel
         ObservableCollection<Teacher> teachers;
         ObservableCollection<Room> rooms;
         ObservableCollection<Filter> filters;
-        
+
         readonly IDataService dataService;
         readonly IApplicationStateService stateService;
         Category selectedCategory;
@@ -29,7 +29,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (value == stateService.IsFailure) return;
                 stateService.IsFailure = value;
-                RaisePropertyChanged("IsFailure");
+                RaisePropertyChanged();
             }
         }
         public bool IsLoading
@@ -39,7 +39,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (value == stateService.IsLoading) return;
                 stateService.IsLoading = value;
-                RaisePropertyChanged("IsLoading");
+                RaisePropertyChanged();
             }
         }
         public ObservableCollection<Filter> Filters
@@ -49,7 +49,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (value == filters) return;
                 filters = value;
-                RaisePropertyChanged("Filters");
+                RaisePropertyChanged();
             }
         }
 
@@ -60,7 +60,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (value == rooms) return;
                 rooms = value;
-                RaisePropertyChanged("Rooms");
+                RaisePropertyChanged();
             }
         }
         public ObservableCollection<Group> Groups
@@ -70,7 +70,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (value == groups) return;
                 groups = value;
-                RaisePropertyChanged("Groups");
+                RaisePropertyChanged();
             }
         }
         public ObservableCollection<Teacher> Teachers
@@ -80,7 +80,7 @@ namespace Schedule.UniversalApp.ViewModel
             {
                 if (value == teachers) return;
                 teachers = value;
-                RaisePropertyChanged("Teachers");
+                RaisePropertyChanged();
             }
         }
         public Category SelectedCategory
@@ -91,7 +91,7 @@ namespace Schedule.UniversalApp.ViewModel
                 if (value == selectedCategory) return;
                 selectedCategory = value;
                 PassSelectedCategory();
-                RaisePropertyChanged("SelectedCategory");
+                RaisePropertyChanged();
             }
         }
         public ScheduleSelectorViewModel(IDataService dataService, IApplicationStateService stateService)
@@ -109,7 +109,7 @@ namespace Schedule.UniversalApp.ViewModel
         {
             IsLoading = true;
             IsFailure = false;
-            
+
             try
             {
                 await SetScheduleCategoriesAsync();
