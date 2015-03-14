@@ -21,7 +21,7 @@ namespace Schedule.UniversalApp.ViewModel
 
             if (!SimpleIoc.Default.IsRegistered<IDataService>())
             {
-                SimpleIoc.Default.Register<IDataService, DataService>();
+                SimpleIoc.Default.Register<IDataService, WebDataService>();
             }
 
             if (!SimpleIoc.Default.IsRegistered<IScheduleStateService>())

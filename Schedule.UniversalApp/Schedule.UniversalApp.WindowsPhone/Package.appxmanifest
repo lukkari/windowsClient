@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="33359DenisAnchugov.TUASSchedule" Publisher="CN=39ACF712-36B5-4F15-8366-631E811368B0" Version="1.1.0.8" />
+  <Identity Name="33359DenisAnchugov.TUASSchedule" Publisher="CN=39ACF712-36B5-4F15-8366-631E811368B0" Version="1.1.0.10" />
   <mp:PhoneIdentity PhoneProductId="ceae71d9-eef6-4ff6-8e6a-0bdb10875715" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>TUAS Schedule</DisplayName>

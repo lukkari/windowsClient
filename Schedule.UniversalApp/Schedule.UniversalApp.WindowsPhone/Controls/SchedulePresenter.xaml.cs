@@ -15,6 +15,7 @@ namespace Schedule.UniversalApp
 
         private void SchedulePresenter_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
         {
+            DayPanel.Children.Clear();
             var timetable = args.NewValue as DaySchedule;
             RenderTimetable(timetable);
         }

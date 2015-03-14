@@ -66,7 +66,7 @@ namespace Schedule.UniversalApp.ViewModel
 
             var height = Window.Current.Bounds.Height * DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
             var width = Window.Current.Bounds.Width * DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
-            var response = await dataService.SendFeedback(new FeedbackForm(width, height, message));
+            var response = await dataService.SendFeedbackAsync(new FeedbackForm(width, height, message));
 
             IsLoading = false;
             return response != "Error";

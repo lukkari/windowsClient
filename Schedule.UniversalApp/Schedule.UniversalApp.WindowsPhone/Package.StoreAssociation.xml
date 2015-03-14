@@ -190,26 +190,25 @@
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
-    <MainPackageIdentityName>33359DenisAnchugov.PushNotificationTestApplication</MainPackageIdentityName>
-    <MainPackageIdentityName>33359DenisAnchugov.PushTestingApp</MainPackageIdentityName>
+    <MainPackageIdentityName>33359DenisAnchugov.LiveTileSpanish</MainPackageIdentityName>
     <MainPackageIdentityName>33359DenisAnchugov.TrainABrain</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=16a7b357-38ee-4cad-bb54-32ad8712f224">
     <BundleInfo>
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture></PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.1.0.9</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>arm</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.6</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.9</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture></PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.6</PackageMaxArchitectureVersion>
-      </PackageInfo>
-      <PackageInfo>
-        <OsMinVersion>6.3.0.0</OsMinVersion>
-        <PackageArchitecture></PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.6</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.9</PackageMaxArchitectureVersion>
       </PackageInfo>
     </BundleInfo>
   </PackageInfoList>

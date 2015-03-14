@@ -32,7 +32,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\ApplicationState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IApplicationStateService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ScheduleStateService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\DataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IScheduleStateService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IDataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\WebAccessService.cs" />
